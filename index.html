@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang>
+<html class="theme-next pisces use-motion" lang>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -70,7 +70,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     version: '7.1.0',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
@@ -224,6 +224,23 @@
         
         
           
+          <li class="menu-item menu-item-aboutme">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>AboutMe</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
 
     
@@ -242,9 +259,6 @@
       
     </ul>
   
-
-  
-    
 
   
 
@@ -266,6 +280,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -331,12 +348,24 @@
                 
               
 
-              <time title="Created: 2019-05-21 20:51:00 / Modified: 22:57:56" itemprop="dateCreated datePublished" datetime="2019-05-21T20:51:00+08:00">2019-05-21</time>
+              <time title="Created: 2019-05-21 20:51:00" itemprop="dateCreated datePublished" datetime="2019-05-21T20:51:00+08:00">2019-05-21</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-22 00:09:28" itemprop="dateModified" datetime="2019-05-22T00:09:28+08:00">2019-05-22</time>
               
             
           </span>
@@ -395,30 +424,19 @@
 
       
         
+          <h3 id="阿里云容器镜像服务"><a href="#阿里云容器镜像服务" class="headerlink" title="阿里云容器镜像服务"></a>阿里云容器镜像服务</h3><p>阿里云是国内云服务提供的比较好的一家了,除了云服务器等收费项目之外,还有很多免费的功能或者有免费额度的功能可以使用.<a href="https://www.aliyun.com/product/acr" target="_blank" rel="noopener">容器镜像服务</a>就是其中比较实用的一个功能<br>
+          <!--noindex-->
           
-            <h3 id="阿里云容器镜像服务"><a href="#阿里云容器镜像服务" class="headerlink" title="阿里云容器镜像服务"></a>阿里云容器镜像服务</h3><p>阿里云是国内云服务提供的比较好的一家了,除了云服务器等收费项目之外,还有很多免费的功能或者有免费额度的功能可以使用.<a href="https://www.aliyun.com/product/acr" target="_blank" rel="noopener">容器镜像服务</a>就是其中比较实用的一个功能</p>
-<h3 id="docker私有仓库"><a href="#docker私有仓库" class="headerlink" title="docker私有仓库"></a>docker私有仓库</h3><p>docker 私有仓库是提供了托管镜像的能力,企业或者个人构建的镜像如果不想放在 docker 官方的 registry 的话,就需要自己搭建一个私有仓库或者使用第三方.</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="准备账号"><a href="#准备账号" class="headerlink" title="准备账号"></a>准备账号</h4><p>如果有账号就去 在 <a href="https://www.aliyun.com/product/acr" target="_blank" rel="noopener">https://www.aliyun.com/product/acr</a> 启用容器服务<br>如果没有账号就在 <a href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=8ygks0rw" target="_blank" rel="noopener">https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=8ygks0rw</a> 注册账号(这个是个我的阿里云账号推广链接,介意的话就去 <a href="https://www.aliyun.com/" target="_blank" rel="noopener">https://www.aliyun.com/</a> 注册 , 也是一样的)</p>
-<h4 id="控制台设置"><a href="#控制台设置" class="headerlink" title="控制台设置"></a>控制台设置</h4><p>进入容器镜像服务控制台,先选择命名空间,创建命名空间<br><img src="/images/pasted-1.png" alt="upload successful"><br>创建命名空间的时候,注意其命名空间创建参考的内容,推荐用公司,组织或者个人名字来命名.</p>
-<p><img src="/images/pasted-2.png" alt="upload successful"></p>
-<p>创建完命名空间后,打开镜像仓库页面,选择适合你的区域</p>
-<p><img src="/images/pasted-5.png" alt="upload successful"></p>
-<p>打开访问凭证页面设置固定密码,记下页面上的 docker 登录命令<br>这里的地址会根据你镜像仓库页面选择的区域不同而不同</p>
-<p><img src="/images/pasted-3.png" alt="upload successful"></p>
-<h4 id="3-构建并推送镜像"><a href="#3-构建并推送镜像" class="headerlink" title="3. 构建并推送镜像"></a>3. 构建并推送镜像</h4><p>首先构建你自己的镜像,后面以 node:10-alpine 镜像为例<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker 登录</span></span><br><span class="line">docker login --username=XXX registry.cn-qingdao.aliyuncs.com</span><br><span class="line"><span class="comment"># 命令行会要求提供密码,填入设置的固定密码即可</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设定义的命名空间为 tns , 期望上传的镜像名称为 my-node:1.0</span></span><br><span class="line">docker tag node:10-alpine registry.cn-qingdao.aliyuncs.com/tns/my-node:1.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送镜像</span></span><br><span class="line">docker push registry.cn-qingdao.aliyuncs.com/tns/my-node:1.0</span><br></pre></td></tr></table></figure></p>
-<h4 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h4><p>打开容器镜像服务页面,选择镜像仓库,选择正确的区域,即可看到刚刚推送的仓库.</p>
-<p><img src="/images/pasted-6.png" alt="upload successful"></p>
-<p>点击仓库名称,进入仓库详情页面</p>
-<p><img src="/images/pasted-7.png" alt="upload successful"></p>
-<p>在基本信息中可以看到大部分的操作说明,在镜像版本中可以看到镜像的不同tag </p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>文章中的操作步骤不是绝对的,阿里云也提供了从版本库中构建镜像的能力,方法是直接在镜像仓库中点击创建镜像仓库按钮,在填写基本信息后,选择不同的版本库来构建. </p>
-<p><img src="/images/pasted-8.png" alt="upload successful"></p>
-<p>不过我本人平常是由 jenkins 来负责持续构建镜像的,所以就不需要选择这些,采用的是本地仓库的方式.</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/20190521/undefined/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
 
@@ -563,7 +581,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.1.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.0</div>
 
 
 
@@ -572,6 +590,15 @@
 
 
 
+
+  <script>
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=66422945";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -651,8 +678,9 @@
   
 
 
-  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+  <script src="/js/affix.js?v=7.1.0"></script>
 
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
 
 
 
