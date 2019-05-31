@@ -96,13 +96,18 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="阿杨">
-<meta property="og:url" content="http://your.site.me/index.html">
+  <meta name="description" content="背景由于国内访问 github 速度比较慢,而且为了方便放一些代码,所以在阿里云服务器上搭建了一个 gogs 版本库.另外还搭建了一个 kanboard .这是一个看板应用,我用来做项目进度管理和日常知识记录.gogs 和 kanboard 都是我自建的服务 gogs 备份具体搭建 gogs 的过程先不讲了,可以参考官方文档.这里主要说一下如何备份 gogs 的信息在 gogs 的根目录下执行 .">
+<meta name="keywords" content="阿里云,oss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里云对象存储定时备份 gogs 和 kanboard">
+<meta property="og:url" content="http://your.site.me/20190529/undefined/index.html">
 <meta property="og:site_name" content="阿杨">
+<meta property="og:description" content="背景由于国内访问 github 速度比较慢,而且为了方便放一些代码,所以在阿里云服务器上搭建了一个 gogs 版本库.另外还搭建了一个 kanboard .这是一个看板应用,我用来做项目进度管理和日常知识记录.gogs 和 kanboard 都是我自建的服务 gogs 备份具体搭建 gogs 的过程先不讲了,可以参考官方文档.这里主要说一下如何备份 gogs 的信息在 gogs 的根目录下执行 .">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-31T15:26:22.948Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿杨">
+<meta name="twitter:title" content="阿里云对象存储定时备份 gogs 和 kanboard">
+<meta name="twitter:description" content="背景由于国内访问 github 速度比较慢,而且为了方便放一些代码,所以在阿里云服务器上搭建了一个 gogs 版本库.另外还搭建了一个 kanboard .这是一个看板应用,我用来做项目进度管理和日常知识记录.gogs 和 kanboard 都是我自建的服务 gogs 备份具体搭建 gogs 的过程先不讲了,可以参考官方文档.这里主要说一下如何备份 gogs 的信息在 gogs 的根目录下执行 .">
 
 
 
@@ -110,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://your.site.me/">
+  <link rel="canonical" href="http://your.site.me/20190529/undefined/">
 
 
 
@@ -120,7 +125,7 @@
   };
 </script>
 
-  <title>阿杨</title>
+  <title>阿里云对象存储定时备份 gogs 和 kanboard | 阿杨</title>
   
 
 
@@ -168,8 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -207,7 +211,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -303,9 +307,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -337,10 +341,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/20190529/undefined/" class="post-title-link" itemprop="url">阿里云对象存储定时备份 gogs 和 kanboard</a>
+          <h1 class="post-title" itemprop="name headline">阿里云对象存储定时备份 gogs 和 kanboard
+
               
             
           </h1>
@@ -422,6 +424,13 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
           
 
@@ -440,9 +449,7 @@
       
 
       
-        
-          
-            <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>由于国内访问 github 速度比较慢,而且为了方便放一些代码,所以在阿里云服务器上搭建了一个 gogs 版本库.<br>另外还搭建了一个 kanboard .这是一个看板应用,我用来做项目进度管理和日常知识记录.<br>gogs 和 kanboard 都是我自建的服务</p>
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>由于国内访问 github 速度比较慢,而且为了方便放一些代码,所以在阿里云服务器上搭建了一个 gogs 版本库.<br>另外还搭建了一个 kanboard .这是一个看板应用,我用来做项目进度管理和日常知识记录.<br>gogs 和 kanboard 都是我自建的服务</p>
 <h3 id="gogs-备份"><a href="#gogs-备份" class="headerlink" title="gogs 备份"></a>gogs 备份</h3><p>具体搭建 gogs 的过程先不讲了,可以参考<a href="https://gogs.io/docs/" target="_blank" rel="noopener">官方文档</a>.这里主要说一下如何备份 gogs 的信息<br>在 gogs 的根目录下执行 ./gogs -h 可以看到提供了 backup 参数<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$ ./gogs -h</span><br><span class="line">NAME:</span><br><span class="line">   Gogs - A painless self-hosted Git service</span><br><span class="line"></span><br><span class="line">USAGE:</span><br><span class="line">   gogs [global options] <span class="built_in">command</span> [<span class="built_in">command</span> options] [arguments...]</span><br><span class="line"></span><br><span class="line">VERSION:</span><br><span class="line">   0.11.86.0130</span><br><span class="line"></span><br><span class="line">COMMANDS:</span><br><span class="line">     web      Start web server</span><br><span class="line">     serv     This <span class="built_in">command</span> should only be called by SSH shell</span><br><span class="line">     hook     Delegate commands to corresponding Git hooks</span><br><span class="line">     cert     Generate self-signed certificate</span><br><span class="line">     admin    Perform admin operations on <span class="built_in">command</span> line</span><br><span class="line">     import   Import portable data as <span class="built_in">local</span> Gogs data</span><br><span class="line">     backup   Backup files and database</span><br><span class="line">     restore  Restore files and database from backup</span><br><span class="line">     <span class="built_in">help</span>, h  Shows a list of commands or <span class="built_in">help</span> <span class="keyword">for</span> one <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line">GLOBAL OPTIONS:</span><br><span class="line">   --<span class="built_in">help</span>, -h     show <span class="built_in">help</span></span><br><span class="line">   --version, -v  <span class="built_in">print</span> the version</span><br></pre></td></tr></table></figure></p>
 <p>通过 执行 ./gogs backup -h 来查看具体的细节和可以配置的参数<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[root@my-ecs gogs]<span class="comment"># ./gogs backup -h</span></span><br><span class="line">NAME:</span><br><span class="line">   gogs backup - Backup files and database</span><br><span class="line"></span><br><span class="line">USAGE:</span><br><span class="line">   gogs backup [<span class="built_in">command</span> options] [arguments...]</span><br><span class="line"></span><br><span class="line">DESCRIPTION:</span><br><span class="line">   Backup dumps and compresses all related files and database into zip file,</span><br><span class="line"><span class="built_in">which</span> can be used <span class="keyword">for</span> migrating Gogs to another server. The output format is meant to be</span><br><span class="line">portable among all supported database engines.</span><br><span class="line"></span><br><span class="line">OPTIONS:</span><br><span class="line">   --config value, -c value   Custom configuration file path (default: <span class="string">"custom/conf/app.ini"</span>)</span><br><span class="line">   --verbose, -v              Show process details</span><br><span class="line">   --tempdir value, -t value  Temporary directory path (default: <span class="string">"/tmp"</span>)</span><br><span class="line">   --target value             Target directory path to save backup archive (default: <span class="string">"./"</span>)</span><br><span class="line">   --archive-name value       Name of backup archive</span><br><span class="line">   --database-only            Only dump database</span><br><span class="line">   --exclude-repos            Exclude repositories</span><br></pre></td></tr></table></figure></p>
 <p>可以通过 传递 target 和 archive-name 参数来控制生成的文件的路径和文件名,得到完整路径后就可以通过 ossutil64 命令上传到阿里云 oss 对象存储中</p>
@@ -455,8 +462,6 @@
 <h4 id="添加到-crontab-定时任务"><a href="#添加到-crontab-定时任务" class="headerlink" title="添加到 crontab 定时任务"></a>添加到 crontab 定时任务</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">crontab -e </span><br><span class="line">0 0 * * * /opt/oss/sh/gogs-backup.sh</span><br><span class="line">0 0 * * * /opt/oss/sh/kanboard-backup.sh</span><br></pre></td></tr></table></figure>
 <h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>我定时任务配置的是每天一保存,时间久了会造成 oss 存储空间中包含太多的文件,后续可以编写脚本定时删除过时的备份文件.其实除了使用脚本和命令行软件 ossutil64,阿里云对象存储也提供了 java sdk 来进行文件上传下载等操作</p>
 
-          
-        
       
     </div>
 
@@ -477,199 +482,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://your.site.me/20190521/aliyun-docker-registry-push/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="阿杨">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿杨">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/20190521/aliyun-docker-registry-push/" class="post-title-link" itemprop="url">阿里云docker私有仓库推送镜像</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-05-21 20:51:00" itemprop="dateCreated datePublished" datetime="2019-05-21T20:51:00+08:00">2019-05-21</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-29 08:18:06" itemprop="dateModified" datetime="2019-05-29T08:18:06+08:00">2019-05-29</time>
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/阿里云/" rel="tag"># 阿里云</a>
           
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">Comments: </span>
-                <a href="/20190521/aliyun-docker-registry-push/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/20190521/aliyun-docker-registry-push/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/oss/" rel="tag"># oss</a>
           
-
-          
-          
-            <span id="/20190521/aliyun-docker-registry-push/" class="leancloud_visitors" data-flag-title="阿里云docker私有仓库推送镜像">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Views: </span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h3 id="阿里云容器镜像服务"><a href="#阿里云容器镜像服务" class="headerlink" title="阿里云容器镜像服务"></a>阿里云容器镜像服务</h3><p>阿里云是国内云服务提供的比较好的一家了,除了云服务器等收费项目之外,还有很多免费的功能或者有免费额度的功能可以使用.<a href="https://www.aliyun.com/product/acr" target="_blank" rel="noopener">容器镜像服务</a>就是其中比较实用的一个功能<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/20190521/aliyun-docker-registry-push/#more" rel="contents">
-                Read more &raquo;
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/20190521/aliyun-docker-registry-push/" rel="next" title="阿里云docker私有仓库推送镜像">
+                <i class="fa fa-chevron-left"></i> 阿里云docker私有仓库推送镜像
               </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
+            
+          </div>
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -679,14 +523,19 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -706,8 +555,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -774,6 +632,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gogs-备份"><span class="nav-number">2.</span> <span class="nav-text">gogs 备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kanboard-备份"><span class="nav-number">3.</span> <span class="nav-text">kanboard 备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-ossutil64"><span class="nav-number">4.</span> <span class="nav-text">配置 ossutil64</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写备份文件脚本"><span class="nav-number">5.</span> <span class="nav-text">编写备份文件脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#kanboard-backup-sh"><span class="nav-number">5.1.</span> <span class="nav-text">kanboard_backup.sh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gogs-backup-sh"><span class="nav-number">5.2.</span> <span class="nav-text">gogs_backup.sh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加到-crontab-定时任务"><span class="nav-number">5.3.</span> <span class="nav-text">添加到 crontab 定时任务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后记"><span class="nav-number">6.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -930,6 +805,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -975,6 +854,8 @@
 
 
 
+
+  
 
 
   
